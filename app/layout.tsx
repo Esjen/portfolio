@@ -20,7 +20,9 @@ const geistMono = Geist_Mono({
 });
 
 export const metadata: Metadata = {
-  metadataBase: new URL("https://your-domain.vercel.app"),
+  metadataBase: new URL(
+    "https://portfolio-seven-red-60o1w6yc1i.vercel.app"
+  ),
 
   title: {
     default: "John Esonu | AI Automation Engineer",
@@ -69,7 +71,7 @@ export const metadata: Metadata = {
     description:
       "Portfolio showcasing AI automation workflows, backend development, full-stack applications, and software engineering projects.",
 
-    url: "https://your-domain.vercel.app",
+    url: "https://portfolio-seven-red-60o1w6yc1i.vercel.app",
 
     siteName: "John Esonu Portfolio",
 
