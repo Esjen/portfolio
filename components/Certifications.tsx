@@ -1,32 +1,64 @@
 "use client";
 
-import { Award, Calendar, BadgeCheck } from "lucide-react";
+import Image from "next/image";
+import { ExternalLink } from "lucide-react";
 import Reveal from "@/components/Reveal";
 
-const certifications = [
-  {
-    title: "ALX AI Career Essentials",
-    issuer: "ALX Africa",
-    year: "2025",
-    description:
-      "Completed intensive training covering AI fundamentals, prompt engineering, productivity with AI, responsible AI usage, and practical applications for modern software development.",
-    verified: true,
-  },
+type Certification = {
+  title: string;
+  issuer: string;
+  date: string;
+  description: string;
+  image: string;
+  imageAlt: string;
+  link: string;
+  linkLabel: string;
+};
+
+const certifications: Certification[] = [
   {
     title: "AI Automation with n8n",
-    issuer: "Self-Directed Learning",
-    year: "2026",
+    issuer: "Innovation Growth Hub",
+    date: "2026",
     description:
-      "Designed intelligent workflow automations using n8n, AI agents, Telegram bots, APIs, and third-party integrations to automate business processes.",
-    verified: true,
+      "Completed Innovation Growth Hub's AI Automation with n8n program, covering workflow automation with n8n.",
+    image: "/certificates/igh-ai-automation-n8n.jpg",
+    imageAlt: "Innovation Growth Hub certificate of completion for AI Automation with n8n",
+    link: "/certificates/igh-ai-automation-n8n.pdf",
+    linkLabel: "View certificate",
   },
   {
-    title: "Backend Development",
-    issuer: "Innovation Growth Hub Internship",
-    year: "2026",
+    title: "Introduction to Packet Tracer",
+    issuer: "Cisco Networking Academy",
+    date: "Sep 14, 2026",
     description:
-      "Built backend services, REST APIs, database integrations, and automation systems using Node.js, FastAPI, PostgreSQL, and modern development tools.",
-    verified: true,
+      "Student-level credential in building and modifying simulated networks, including IoT devices and a smart home network, in Cisco Packet Tracer.",
+    image: "/certificates/cisco-packet-tracer.jpg",
+    imageAlt: "Cisco Networking Academy certificate for Introduction to Packet Tracer",
+    link: "https://www.credly.com/badges/0b329b3a-3d71-40c9-8943-8d26de868633/linked_in_profile",
+    linkLabel: "Verify on Credly",
+  },
+  {
+    title: "Problem Solving (Intermediate)",
+    issuer: "HackerRank",
+    date: "Sep 19, 2026",
+    description:
+      "Passed HackerRank's skill certification test for intermediate-level problem solving.",
+    image: "/certificates/hackerrank-problem-solving.jpg",
+    imageAlt: "HackerRank certificate of accomplishment for Problem Solving (Intermediate)",
+    link: "https://www.hackerrank.com/certificates/4d0db4355074",
+    linkLabel: "Verify on HackerRank",
+  },
+  {
+    title: "Software Engineer",
+    issuer: "HackerRank",
+    date: "Sep 29, 2026",
+    description:
+      "Passed HackerRank's role certification test for the Software Engineer role.",
+    image: "/certificates/hackerrank-software-engineer.jpg",
+    imageAlt: "HackerRank certificate of accomplishment for Software Engineer",
+    link: "https://www.hackerrank.com/certificates/0c422a643916",
+    linkLabel: "Verify on HackerRank",
   },
 ];
 
@@ -34,10 +66,9 @@ export default function Certifications() {
   return (
     <section
       id="certifications"
-      className="bg-white py-24 px-6 transition-colors duration-500 dark:bg-slate-900"
+      className="bg-white px-6 py-24 transition-colors duration-500 dark:bg-slate-900"
     >
       <div className="mx-auto max-w-7xl">
-
         {/* Heading */}
         <Reveal className="mb-16 text-center">
           <p className="font-semibold uppercase tracking-widest text-blue-600">
@@ -45,70 +76,73 @@ export default function Certifications() {
           </p>
 
           <h2 className="mt-4 text-4xl font-bold text-slate-900 md:text-5xl dark:text-white">
-            Learning & Professional Development
+            Certificates I&apos;ve Earned
           </h2>
 
           <p className="mx-auto mt-6 max-w-3xl text-lg leading-8 text-gray-600 dark:text-gray-400">
-            I continuously expand my knowledge through certifications,
-            professional training, internships, and hands-on software
-            engineering projects.
+            Each certificate links to the issuer&apos;s verification page,
+            or to the PDF where the issuer doesn&apos;t provide one.
           </p>
         </Reveal>
 
         {/* Cards */}
-        <div className="grid gap-8 md:grid-cols-2 lg:grid-cols-3">
-
+        <div className="grid gap-8 md:grid-cols-2">
           {certifications.map((cert, index) => (
-
             <Reveal
               key={cert.title}
-              delay={index * 0.15}
-              className="group rounded-3xl border border-gray-200 bg-gray-50 p-8 shadow-sm transition-all duration-500 hover:-translate-y-3 hover:shadow-2xl dark:border-slate-700 dark:bg-slate-800"
+              delay={index * 0.1}
+              className="overflow-hidden rounded-3xl border border-gray-200 bg-gray-50 shadow-sm dark:border-slate-700 dark:bg-slate-800"
             >
-
-              {/* Header */}
-              <div className="mb-6 flex items-center justify-between">
-
-                <div className="flex h-14 w-14 items-center justify-center rounded-2xl bg-blue-100 transition-transform duration-300 group-hover:scale-110 dark:bg-slate-700">
-                  <Award
-                    size={30}
-                    className="text-blue-600"
+              <article className="flex h-full flex-col">
+                {/* Certificate preview (opens the certificate) */}
+                <a
+                  href={cert.link}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  aria-label={`${cert.linkLabel}: ${cert.title}`}
+                  className="relative block aspect-[4/3] bg-slate-100 dark:bg-slate-950"
+                >
+                  <Image
+                    src={cert.image}
+                    alt={cert.imageAlt}
+                    fill
+                    sizes="(max-width: 768px) 100vw, 50vw"
+                    className="object-contain p-3"
                   />
+                </a>
+
+                {/* Details */}
+                <div className="flex flex-1 flex-col p-8">
+                  <h3 className="text-2xl font-bold text-slate-900 dark:text-white">
+                    {cert.title}
+                  </h3>
+
+                  <p className="mt-2 font-semibold text-blue-600 dark:text-blue-400">
+                    {cert.issuer}
+                    <span className="font-normal text-gray-500 dark:text-gray-400">
+                      {" "}
+                      &middot; {cert.date}
+                    </span>
+                  </p>
+
+                  <p className="mt-4 flex-1 leading-8 text-gray-600 dark:text-gray-400">
+                    {cert.description}
+                  </p>
+
+                  <a
+                    href={cert.link}
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    className="mt-6 inline-flex w-fit items-center gap-2 rounded-xl border border-blue-600 px-5 py-3 font-medium text-blue-600 transition-colors duration-300 hover:bg-blue-600 hover:text-white dark:border-blue-400 dark:text-blue-400 dark:hover:bg-blue-500 dark:hover:text-white"
+                  >
+                    <ExternalLink size={18} />
+                    {cert.linkLabel}
+                  </a>
                 </div>
-
-                {cert.verified && (
-                  <div className="flex items-center gap-1 rounded-full bg-green-100 px-3 py-1 text-sm font-medium text-green-700 dark:bg-green-900/30 dark:text-green-400">
-                    <BadgeCheck size={16} />
-                    Verified
-                  </div>
-                )}
-
-              </div>
-
-              {/* Title */}
-              <h3 className="text-2xl font-bold text-slate-900 dark:text-white">
-                {cert.title}
-              </h3>
-
-              <p className="mt-2 font-semibold text-blue-600">
-                {cert.issuer}
-              </p>
-
-              <div className="mt-4 flex items-center gap-2 text-gray-500 dark:text-gray-400">
-                <Calendar size={16} />
-                {cert.year}
-              </div>
-
-              <p className="mt-6 leading-8 text-gray-600 dark:text-gray-400">
-                {cert.description}
-              </p>
-
+              </article>
             </Reveal>
-
           ))}
-
         </div>
-
       </div>
     </section>
   );
