@@ -29,9 +29,9 @@ export default function PageLoader() {
             transition={{ duration: 0.5 }}
             className="text-center"
           >
-            <h1 className="text-5xl font-bold text-blue-600">
+            <p className="text-5xl font-bold text-blue-600">
               John Esonu
-            </h1>
+            </p>
 
             <p className="mt-4 text-lg text-slate-600 dark:text-slate-300">
               AI Automation Engineer

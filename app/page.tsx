@@ -11,14 +11,20 @@ import Certifications from "@/components/Certifications";
 export default function Home() {
   return (
     <>
-      <Navbar />
-      <Hero />
-      <About />
-      <Skills />
-      <Experience />
-      <Projects />
-      <Certifications />
-      <Contact />
+      <header>
+        <Navbar />
+      </header>
+
+      <main>
+        <Hero />
+        <About />
+        <Skills />
+        <Experience />
+        <Projects />
+        <Certifications />
+        <Contact />
+      </main>
+
       <Footer />
     </>
   );
