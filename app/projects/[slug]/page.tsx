@@ -18,7 +18,7 @@ interface PageProps {
   params: Promise<{ slug: string }>;
 }
 
-/** Build one static page for every project that has case-study details. */
+/** Build one static page for every project that has a project details page. */
 export function generateStaticParams() {
   return projects
     .filter((project) => project.details)
@@ -34,10 +34,10 @@ export async function generateMetadata({
   if (!project?.details) return {};
 
   return {
-    title: `${project.title} case study`,
+    title: `${project.title}: project details`,
     description: project.summary,
     openGraph: {
-      title: `${project.title} case study | John Esonu`,
+      title: `${project.title}: project details | John Esonu`,
       description: project.summary,
       images: [{ url: project.image, alt: project.imageAlt }],
     },
@@ -89,7 +89,7 @@ export default async function ProjectPage({ params }: PageProps) {
       {/* ---------- Header ---------- */}
       <header className="sticky top-0 z-40 border-b border-gray-200 bg-white/90 backdrop-blur-md dark:border-slate-800 dark:bg-slate-900/90">
         <nav
-          aria-label="Case study navigation"
+          aria-label="Project details navigation"
           className="mx-auto flex max-w-5xl items-center justify-between gap-4 px-6 py-4"
         >
           <Link
@@ -127,7 +127,7 @@ export default async function ProjectPage({ params }: PageProps) {
         >
           <div className={containerClass}>
             <p className="text-sm font-semibold uppercase tracking-widest text-blue-600 dark:text-blue-400">
-              Case study
+              Project details
             </p>
 
             <h1

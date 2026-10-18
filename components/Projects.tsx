@@ -32,7 +32,7 @@ export default function Projects() {
 
           <p className="mx-auto mt-6 max-w-3xl text-lg leading-8 text-gray-600 dark:text-gray-400">
             Machine-learning security tools, full-stack applications, and
-            AI automation workflows. Open the ClearSight case study for the
+            AI automation workflows. Open the ClearSight project details page for the
             full story behind one of them.
           </p>
         </Reveal>
@@ -64,7 +64,7 @@ export default function Projects() {
                 {caseStudyHref && (
                   <div className="absolute inset-0 flex items-center justify-center opacity-0 transition-all duration-500 group-hover:opacity-100 group-focus-within:opacity-100">
                     <span className="rounded-full bg-white/90 px-5 py-2 text-sm font-semibold text-slate-900 backdrop-blur">
-                      View case study
+                      View project details
                     </span>
                   </div>
                 )}
@@ -88,11 +88,11 @@ export default function Projects() {
               >
                 <article className="group flex h-full flex-col overflow-hidden rounded-3xl border border-gray-200 bg-white shadow-sm transition-all duration-500 hover:-translate-y-3 hover:shadow-[0_20px_60px_rgba(37,99,235,0.18)] dark:border-slate-700 dark:bg-slate-900">
 
-                  {/* Image (links to the case study when there is one) */}
+                  {/* Image (links to its project details page when there is one) */}
                   {caseStudyHref ? (
                     <Link
                       href={caseStudyHref}
-                      aria-label={`View the ${project.title} case study`}
+                      aria-label={`View the ${project.title} project details`}
                       className="block"
                     >
                       {image}
@@ -143,7 +143,7 @@ export default function Projects() {
                           className="flex items-center gap-2 rounded-xl bg-blue-600 px-5 py-3 font-medium text-white transition-all duration-300 hover:-translate-y-1 hover:bg-blue-700 dark:bg-blue-500 dark:hover:bg-blue-600"
                         >
                           <ArrowUpRight size={18} aria-hidden="true" />
-                          Case study
+                          Project details
                         </Link>
                       )}
 

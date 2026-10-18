@@ -1,8 +1,8 @@
 /**
  * Project data shared by the Projects section on the home page and the
- * dedicated case-study page at /projects/[slug].
+ * dedicated project details page at /projects/[slug].
  *
- * A project gets a case-study page by having a `details` object.
+ * A project gets a project details page by having a `details` object.
  */
 
 export interface Screenshot {
