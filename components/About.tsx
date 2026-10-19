@@ -63,7 +63,7 @@ export default function About() {
   return (
     <section
       id="about"
-      className="bg-white px-6 py-24 transition-colors duration-500 dark:bg-slate-900"
+      className="bg-white px-6 py-24 transition-colors duration-500 dark:bg-transparent"
     >
       <div className="mx-auto max-w-7xl">
         <div className="grid items-center gap-16 lg:grid-cols-2">

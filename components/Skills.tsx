@@ -69,7 +69,7 @@ export default function Skills() {
   return (
     <section
       id="skills"
-      className="bg-slate-50 py-24 px-6 transition-colors duration-500 dark:bg-slate-950"
+      className="bg-slate-50 py-24 px-6 transition-colors duration-500 dark:bg-transparent"
     >
       <div className="mx-auto max-w-7xl">
 
