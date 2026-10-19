@@ -85,7 +85,7 @@ export default async function ProjectPage({ params }: PageProps) {
   )}`;
 
   return (
-    <div className="min-h-screen bg-white text-slate-900 dark:bg-slate-950 dark:text-slate-100">
+    <div className="min-h-screen bg-white text-slate-900 dark:bg-transparent dark:text-slate-100">
       {/* ---------- Header ---------- */}
       <header className="sticky top-0 z-40 border-b border-gray-200 bg-white/90 backdrop-blur-md dark:border-slate-800 dark:bg-slate-900/90">
         <nav

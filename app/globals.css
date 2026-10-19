@@ -8,8 +8,13 @@
 }
 
 html.dark {
-  --background: #0a0a0a;
+  --background: #03040a;
   --foreground: #ededed;
+
+  /* Space theme tokens, read by components/SpaceBackground.tsx */
+  --star-warm: #f6efe4;
+  --star-cool: #cfdcff;
+  --star-line: 170 190 235; /* r g b */
 }
 
 @theme inline {
@@ -22,6 +27,17 @@ html.dark {
 
 html {
   scroll-behavior: smooth;
+}
+
+/* Deep space: near-black with a faint blue glow at the top of the page. */
+html.dark body {
+  background:
+    radial-gradient(
+      900px 500px at 50% -8%,
+      rgba(60, 90, 170, 0.16),
+      transparent 70%
+    ),
+    var(--background);
 }
 
 body {

@@ -33,17 +33,15 @@ export default function Hero() {
         pt-28
         transition-colors
         duration-500
-        dark:from-slate-950
-        dark:via-slate-900
-        dark:to-slate-800
+        dark:bg-none
       "
     >
       {/* Background Blobs */}
-      <div className="absolute left-10 top-20 h-72 w-72 animate-pulse rounded-full bg-blue-300/20 blur-3xl dark:bg-blue-500/10" />
+      <div className="absolute left-10 top-20 h-72 w-72 animate-pulse rounded-full bg-blue-300/20 blur-3xl dark:hidden" />
 
-      <div className="absolute bottom-10 right-10 h-80 w-80 animate-pulse rounded-full bg-indigo-400/20 blur-3xl dark:bg-indigo-500/10" />
+      <div className="absolute bottom-10 right-10 h-80 w-80 animate-pulse rounded-full bg-indigo-400/20 blur-3xl dark:hidden" />
 
-      <div className="absolute left-1/2 top-1/2 h-64 w-64 -translate-x-1/2 -translate-y-1/2 rounded-full bg-cyan-300/10 blur-3xl dark:bg-cyan-500/10" />
+      <div className="absolute left-1/2 top-1/2 h-64 w-64 -translate-x-1/2 -translate-y-1/2 rounded-full bg-cyan-300/10 blur-3xl dark:hidden" />
 
       <div className="relative z-10 mx-auto flex max-w-7xl flex-col-reverse items-center justify-between gap-16 lg:flex-row">
         {/* Left */}
@@ -60,7 +58,7 @@ export default function Hero() {
           </div>
 
           <p className="mb-4 text-lg font-semibold text-blue-600 dark:text-blue-400">
-            👋 Hello, I'm
+            👋 Hello, I&apos;m
           </p>
 
           <h1 className="mb-6 text-5xl font-black text-slate-900 md:text-7xl dark:text-white">

@@ -57,7 +57,7 @@ export default function Contact() {
   return (
     <section
       id="contact"
-      className="bg-slate-50 px-6 py-24 transition-colors duration-500 dark:bg-slate-950"
+      className="bg-slate-50 px-6 py-24 transition-colors duration-500 dark:bg-transparent"
     >
       <div className="mx-auto max-w-7xl">
         {/* Heading */}

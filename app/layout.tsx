@@ -8,6 +8,7 @@ import BackToTop from "@/components/BackToTop";
 import CommandPalette from "@/components/CommandPalette";
 import PageLoader from "@/components/PageLoader";
 import MouseSpotlight from "@/components/MouseSpotlight";
+import SpaceBackground from "@/components/SpaceBackground";
 
 const geistSans = Geist({
   variable: "--font-geist-sans",
@@ -116,6 +117,8 @@ export default function RootLayout({
         <ScrollProgress />
 
         <ThemeProvider>
+          <SpaceBackground />
+
           <PageLoader />
 
           <MouseSpotlight />

@@ -10,7 +10,7 @@ export default function Footer() {
   const year = new Date().getFullYear();
 
   return (
-    <footer className="border-t border-slate-200 bg-slate-900 px-6 py-14 text-white transition-colors duration-500 dark:border-slate-700 dark:bg-slate-950">
+    <footer className="border-t border-slate-200 bg-slate-900 px-6 py-14 text-white transition-colors duration-500 dark:border-slate-700 dark:bg-slate-950/70">
       <div className="mx-auto max-w-7xl">
 
         <div className="grid gap-12 md:grid-cols-3">
