@@ -9,6 +9,7 @@ import CommandPalette from "@/components/CommandPalette";
 import PageLoader from "@/components/PageLoader";
 import MouseSpotlight from "@/components/MouseSpotlight";
 import SpaceBackground from "@/components/SpaceBackground";
+import MotionProvider from "@/components/MotionProvider";
 
 const geistSans = Geist({
   variable: "--font-geist-sans",
@@ -114,20 +115,29 @@ export default function RootLayout({
       className={`${geistSans.variable} ${geistMono.variable} h-full antialiased`}
     >
       <body className="min-h-full">
+        <a
+          href="#main"
+          className="sr-only focus:not-sr-only focus:fixed focus:left-4 focus:top-4 focus:z-[10000] focus:rounded-lg focus:bg-blue-700 focus:px-4 focus:py-2 focus:font-medium focus:text-white"
+        >
+          Skip to main content
+        </a>
+
         <ScrollProgress />
 
         <ThemeProvider>
-          <SpaceBackground />
+          <MotionProvider>
+            <SpaceBackground />
 
-          <PageLoader />
+            <PageLoader />
 
-          <MouseSpotlight />
+            <MouseSpotlight />
 
-          <CommandPalette />
+            <CommandPalette />
 
-          {children}
+            {children}
 
-          <BackToTop />
+            <BackToTop />
+          </MotionProvider>
         </ThemeProvider>
       </body>
     </html>

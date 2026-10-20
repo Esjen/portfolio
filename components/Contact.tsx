@@ -4,6 +4,7 @@ import { useState } from "react";
 import { motion } from "framer-motion";
 import { Mail, MapPin } from "lucide-react";
 import { FaGithub, FaLinkedin } from "react-icons/fa";
+import { CONTACT_EMAIL } from "@/lib/site";
 
 export default function Contact() {
   const [name, setName] = useState("");
@@ -73,13 +74,13 @@ export default function Contact() {
           </p>
 
           <h2 className="mt-4 text-4xl font-bold text-slate-900 md:text-5xl dark:text-white">
-            Let's Work Together
+            Let&apos;s Work Together
           </h2>
 
           <p className="mx-auto mt-6 max-w-2xl text-lg leading-8 text-gray-600 dark:text-gray-400">
-            Whether it's an internship, backend development project,
+            Whether it&apos;s an internship, backend development project,
             AI automation solution, or collaboration opportunity,
-            I'd be happy to connect.
+            I&apos;d be happy to connect.
           </p>
         </motion.div>
 
@@ -105,10 +106,10 @@ export default function Contact() {
                 </h3>
 
                 <a
-                  href="mailto:john.esonu@pau.edu.ng"
+                  href={`mailto:${CONTACT_EMAIL}`}
                   className="text-gray-600 transition hover:text-blue-600 dark:text-gray-400"
                 >
-                  john.esonu@pau.edu.ng
+                  {CONTACT_EMAIL}
                 </a>
               </div>
             </div>
@@ -189,49 +190,86 @@ export default function Contact() {
 
             <div className="space-y-6">
 
-              <input
-                type="text"
-                placeholder="Your Name"
-                value={name}
-                onChange={(e) => setName(e.target.value)}
-                required
-                className="w-full rounded-xl border border-gray-300 bg-white px-4 py-3 outline-none transition focus:border-blue-600 dark:border-slate-700 dark:bg-slate-800 dark:text-white"
-              />
+              <div>
+                <label htmlFor="contact-name" className="mb-2 block text-sm font-medium text-slate-700 dark:text-slate-300">
+                  Name
+                </label>
+                <input
+                  id="contact-name"
+                  name="name"
+                  type="text"
+                  autoComplete="name"
+                  placeholder="Your name"
+                  value={name}
+                  onChange={(e) => setName(e.target.value)}
+                  required
+                  className="w-full rounded-xl border border-gray-300 bg-white px-4 py-3 outline-none transition focus:border-blue-600 dark:border-slate-700 dark:bg-slate-800 dark:text-white"
+                />
+              </div>
 
-              <input
-                type="email"
-                placeholder="you@example.com"
-                value={email}
-                onChange={(e) => setEmail(e.target.value)}
-                required
-                className="w-full rounded-xl border border-gray-300 bg-white px-4 py-3 outline-none transition focus:border-blue-600 dark:border-slate-700 dark:bg-slate-800 dark:text-white"
-              />
+              <div>
+                <label htmlFor="contact-email" className="mb-2 block text-sm font-medium text-slate-700 dark:text-slate-300">
+                  Email
+                </label>
+                <input
+                  id="contact-email"
+                  name="email"
+                  type="email"
+                  autoComplete="email"
+                  placeholder="you@example.com"
+                  value={email}
+                  onChange={(e) => setEmail(e.target.value)}
+                  required
+                  className="w-full rounded-xl border border-gray-300 bg-white px-4 py-3 outline-none transition focus:border-blue-600 dark:border-slate-700 dark:bg-slate-800 dark:text-white"
+                />
+              </div>
 
-              <textarea
-                rows={6}
-                placeholder="Tell me about your project..."
-                value={message}
-                onChange={(e) => setMessage(e.target.value)}
-                required
-                className="w-full rounded-xl border border-gray-300 bg-white px-4 py-3 outline-none transition focus:border-blue-600 dark:border-slate-700 dark:bg-slate-800 dark:text-white"
-              />
+              <div>
+                <label htmlFor="contact-message" className="mb-2 block text-sm font-medium text-slate-700 dark:text-slate-300">
+                  Message
+                </label>
+                <textarea
+                  id="contact-message"
+                  name="message"
+                  rows={6}
+                  placeholder="Tell me about your project..."
+                  value={message}
+                  onChange={(e) => setMessage(e.target.value)}
+                  required
+                  aria-describedby="contact-privacy"
+                  className="w-full rounded-xl border border-gray-300 bg-white px-4 py-3 outline-none transition focus:border-blue-600 dark:border-slate-700 dark:bg-slate-800 dark:text-white"
+                />
+                <p
+                  id="contact-privacy"
+                  className="mt-2 text-sm text-slate-600 dark:text-slate-400"
+                >
+                  I only use your details to reply to this message.
+                </p>
+              </div>
 
               <button
                 type="submit"
                 disabled={loading}
+                aria-busy={loading}
                 className="w-full rounded-xl bg-blue-600 py-4 font-semibold text-white transition hover:bg-blue-700 disabled:cursor-not-allowed disabled:opacity-70"
               >
                 {loading ? "Sending..." : "Send Message"}
               </button>
 
-              {success && (
-                <p className="text-center font-medium text-green-600">
-                  {success}
-                </p>
-              )}
+              {/* Status messages are announced to screen readers. */}
+              <div role="status" aria-live="polite">
+                {success && (
+                  <p className="text-center font-medium text-green-700 dark:text-green-400">
+                    {success}
+                  </p>
+                )}
+              </div>
 
               {error && (
-                <p className="text-center font-medium text-red-600">
+                <p
+                  role="alert"
+                  className="text-center font-medium text-red-700 dark:text-red-400"
+                >
                   {error}
                 </p>
               )}

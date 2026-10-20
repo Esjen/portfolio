@@ -15,7 +15,7 @@ export default function Home() {
         <Navbar />
       </header>
 
-      <main>
+      <main id="main" tabIndex={-1}>
         <Hero />
         <About />
         <Skills />

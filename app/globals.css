@@ -5,6 +5,9 @@
 :root {
   --background: #ffffff;
   --foreground: #171717;
+
+  /* Keyboard focus outline (passes 3:1 against the page in both themes) */
+  --focus-ring: #1d4ed8;
 }
 
 html.dark {
@@ -15,6 +18,8 @@ html.dark {
   --star-warm: #f6efe4;
   --star-cool: #cfdcff;
   --star-line: 170 190 235; /* r g b */
+
+  --focus-ring: #93c5fd;
 }
 
 @theme inline {
@@ -50,4 +55,29 @@ body {
   transition:
     background-color 0.3s ease,
     color 0.3s ease;
+}
+/* Keyboard focus: one clear, consistent ring on every interactive element. */
+:focus-visible {
+  outline: 2px solid var(--focus-ring);
+  outline-offset: 3px;
+}
+
+/* The skip link moves focus to <main>; no ring around the whole page. */
+main:focus-visible {
+  outline: none;
+}
+
+/* Respect "reduce motion": stop CSS animations and smooth scrolling. */
+@media (prefers-reduced-motion: reduce) {
+  html {
+    scroll-behavior: auto;
+  }
+
+  *,
+  *::before,
+  *::after {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+  }
 }

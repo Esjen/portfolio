@@ -9,7 +9,7 @@ export default function PageLoader() {
   useEffect(() => {
     const timer = setTimeout(() => {
       setLoading(false);
-    }, 1400);
+    }, 600);
 
     return () => clearTimeout(timer);
   }, []);
@@ -21,7 +21,7 @@ export default function PageLoader() {
           initial={{ opacity: 1 }}
           exit={{ opacity: 0 }}
           transition={{ duration: 0.6 }}
-          className="fixed inset-0 z-[9999] flex items-center justify-center bg-white dark:bg-slate-950"
+          className="fixed inset-0 z-[9999] flex items-center justify-center bg-white motion-reduce:hidden dark:bg-slate-950"
         >
           <motion.div
             initial={{ opacity: 0, y: 15 }}
@@ -41,7 +41,7 @@ export default function PageLoader() {
               initial={{ width: 0 }}
               animate={{ width: 180 }}
               transition={{
-                duration: 1.2,
+                duration: 0.5,
                 ease: "easeInOut",
               }}
               className="mx-auto mt-10 h-1 rounded-full bg-blue-600"

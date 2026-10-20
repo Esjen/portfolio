@@ -119,7 +119,7 @@ export default async function ProjectPage({ params }: PageProps) {
         </nav>
       </header>
 
-      <main>
+      <main id="main" tabIndex={-1}>
         {/* ---------- Title ---------- */}
         <section
           aria-labelledby="project-title"

@@ -80,14 +80,14 @@ export default function About() {
               </h2>
 
               <p className="mt-8 text-lg leading-8 text-gray-600 dark:text-gray-400">
-                I'm a final-year Computer Science student passionate about
+                I&apos;m a final-year Computer Science student passionate about
                 building intelligent software that solves real-world problems.
                 My focus spans backend engineering, AI workflow automation,
                 cloud technologies, and scalable web applications.
               </p>
 
               <p className="mt-6 text-lg leading-8 text-gray-600 dark:text-gray-400">
-                During my internship, I've been developing backend systems,
+                During my internship, I&apos;ve been developing backend systems,
                 automation workflows, and AI-powered solutions while continually
                 expanding my expertise in modern software engineering practices.
               </p>

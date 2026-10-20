@@ -46,8 +46,7 @@ export interface Project {
   details?: ProjectDetails;
 }
 
-export const CONTACT_EMAIL = "john.esonu@pau.edu.ng";
-export const LINKEDIN_URL = "https://linkedin.com/in/johnesonu-213970291";
+export { CONTACT_EMAIL, LINKEDIN_URL } from "@/lib/site";
 
 export const projects: Project[] = [
   {
