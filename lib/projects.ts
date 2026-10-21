@@ -74,9 +74,9 @@ export const projects: Project[] = [
     demo: "",
     details: {
       tagline: "Explainable static malware detection for security operations",
-      meta: ["Final-year project", "Pan-Atlantic University", "2026"],
+      meta: ["University project", "Pan-Atlantic University", "2026"],
       overview: [
-        "ClearSight is a web dashboard for a security analyst. It classifies a Windows executable as malicious or benign and, on the same screen, shows which features of the file pushed the model towards that verdict. It was my final-year project at Pan-Atlantic University.",
+        "ClearSight is a web dashboard for a security analyst. It classifies a Windows executable as malicious or benign and, on the same screen, shows which features of the file pushed the model towards that verdict. I built it as a university project at Pan-Atlantic University.",
         "You choose a file from the EMBER 2018 test set (row 0 to 199,999) and one of three trained models: Random Forest, XGBoost or LightGBM. ClearSight returns the verdict with a confidence score, says whether it matches the dataset's reference label, and ranks the ten features that influenced the prediction as horizontal bars. Red bars push towards malicious, green towards benign, and the SHAP value is printed beside each one. A second tab compares what all three models relied on for the same file. Every prediction is saved to a database.",
       ],
       problem: [
