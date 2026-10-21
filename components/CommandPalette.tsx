@@ -2,6 +2,7 @@
 
 import { useEffect, useState } from "react";
 import { Command } from "cmdk";
+import { CONTACT_EMAIL } from "@/lib/site";
 
 const items = [
   {
@@ -68,7 +69,7 @@ const items = [
     label: "Email",
     action: () =>
       (window.location.href =
-        "mailto:john.esonu@pau.edu.ng"),
+        `mailto:${CONTACT_EMAIL}`),
   },
 ];
 

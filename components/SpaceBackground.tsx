@@ -1,6 +1,7 @@
 "use client";
 
-import { useEffect, useRef } from "react";
+import { useEffect, useRef, useState } from "react";
+import { Pause, Play } from "lucide-react";
 
 import {
   createSky,
@@ -21,9 +22,15 @@ import {
  * - Colours come from the CSS custom properties in globals.css (design tokens).
  * - It stops animating when the theme is light, when the tab is hidden, and
  *   draws a single still frame if the visitor prefers reduced motion.
+ * - A visible button lets anyone pause the animation (WCAG 2.2.2).
  */
 export default function SpaceBackground() {
   const canvasRef = useRef<HTMLCanvasElement>(null);
+  const [paused, setPaused] = useState(false);
+
+  // Lets the button talk to the animation loop that lives inside the effect.
+  const pausedRef = useRef(false);
+  const restartRef = useRef<(() => void) | null>(null);
 
   useEffect(() => {
     const canvas = canvasRef.current;
@@ -117,7 +124,7 @@ export default function SpaceBackground() {
       readColors();
       resize();
 
-      if (motion.matches) {
+      if (motion.matches || pausedRef.current) {
         render(0, false); // one still frame
         return;
       }
@@ -141,6 +148,7 @@ export default function SpaceBackground() {
       else start();
     };
 
+    restartRef.current = start;
     start();
 
     // Re-run when the theme class on <html> changes, or the motion setting does.
@@ -152,6 +160,7 @@ export default function SpaceBackground() {
 
     return () => {
       stop();
+      restartRef.current = null;
       window.clearTimeout(resizeTimer);
       themeObserver.disconnect();
       motion.removeEventListener("change", start);
@@ -160,11 +169,34 @@ export default function SpaceBackground() {
     };
   }, []);
 
+  // Apply the pause setting by restarting the loop in its new mode.
+  useEffect(() => {
+    pausedRef.current = paused;
+    restartRef.current?.();
+  }, [paused]);
+
   return (
-    <canvas
-      ref={canvasRef}
-      aria-hidden="true"
-      className="pointer-events-none fixed inset-0 -z-10 hidden h-full w-full dark:block"
-    />
+    <>
+      <canvas
+        ref={canvasRef}
+        aria-hidden="true"
+        className="pointer-events-none fixed inset-0 -z-10 hidden h-full w-full dark:block"
+      />
+
+      {/* Only shown in dark mode, and not at all if motion is already reduced. */}
+      <button
+        type="button"
+        onClick={() => setPaused((value) => !value)}
+        aria-pressed={paused}
+        className="fixed bottom-5 left-5 z-40 hidden items-center gap-2 rounded-full border border-slate-600 bg-slate-900/85 px-3 py-2 text-xs font-medium text-slate-200 backdrop-blur transition hover:bg-slate-800 motion-reduce:hidden dark:flex"
+      >
+        {paused ? (
+          <Play size={14} aria-hidden="true" />
+        ) : (
+          <Pause size={14} aria-hidden="true" />
+        )}
+        {paused ? "Play background" : "Pause background"}
+      </button>
+    </>
   );
 }

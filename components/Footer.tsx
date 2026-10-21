@@ -5,6 +5,7 @@ import { ArrowUp } from "lucide-react";
 import { FaGithub, FaLinkedin } from "react-icons/fa";
 import { MdEmail } from "react-icons/md";
 import Reveal from "@/components/Reveal";
+import { CONTACT_EMAIL } from "@/lib/site";
 
 export default function Footer() {
   const year = new Date().getFullYear();
@@ -118,7 +119,7 @@ export default function Footer() {
                 </a>
 
                 <a
-                  href="mailto:esonujohn9@gmail.com"
+                  href={`mailto:${CONTACT_EMAIL}`}
                   aria-label="Email"
                   className="transition-all duration-300 hover:-translate-y-1 hover:scale-110 hover:text-blue-400"
                 >

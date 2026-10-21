@@ -1,10 +1,11 @@
 "use client";
 
 import Image from "next/image";
-import { motion } from "framer-motion";
+import { motion, useReducedMotion } from "framer-motion";
 import { TypeAnimation } from "react-type-animation";
 import { FaGithub, FaLinkedin } from "react-icons/fa";
 import { MdEmail } from "react-icons/md";
+import { CONTACT_EMAIL } from "@/lib/site";
 
 const techStack = [
   "React",
@@ -18,6 +19,8 @@ const techStack = [
 ];
 
 export default function Hero() {
+  const reduceMotion = useReducedMotion();
+
   return (
     <section
       id="home"
@@ -70,25 +73,31 @@ export default function Hero() {
 
           {/* Typing Animation */}
           <div className="mb-6 h-10">
-            <TypeAnimation
-              sequence={[
-                "AI Automation Engineer",
-                1800,
-                "Backend Developer",
-                1800,
-                "Full-Stack Developer",
-                1800,
-                "n8n Automation Specialist",
-                1800,
-                "Software Engineer",
-                1800,
-              ]}
-              wrapper="h2"
-              speed={45}
-              repeat={Infinity}
-              cursor={true}
-              className="text-2xl font-medium text-gray-700 dark:text-gray-300"
-            />
+            {reduceMotion ? (
+              <h2 className="text-2xl font-medium text-gray-700 dark:text-gray-300">
+                AI Automation Engineer
+              </h2>
+            ) : (
+              <TypeAnimation
+                sequence={[
+                  "AI Automation Engineer",
+                  1800,
+                  "Backend Developer",
+                  1800,
+                  "Full-Stack Developer",
+                  1800,
+                  "n8n Automation Specialist",
+                  1800,
+                  "Software Engineer",
+                  1800,
+                ]}
+                wrapper="h2"
+                speed={45}
+                repeat={Infinity}
+                cursor={true}
+                className="text-2xl font-medium text-gray-700 dark:text-gray-300"
+              />
+            )}
           </div>
 
           <p className="mb-10 max-w-2xl text-lg leading-8 text-gray-600 dark:text-gray-400">
@@ -157,7 +166,7 @@ export default function Hero() {
             </a>
 
             <a
-              href="mailto:john.esonu@pau.edu.ng"
+              href={`mailto:${CONTACT_EMAIL}`}
               aria-label="Email"
             >
               <MdEmail className="transition-all duration-300 hover:scale-110 hover:text-blue-600 dark:hover:text-blue-400" />
