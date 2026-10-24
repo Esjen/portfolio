@@ -1,11 +1,11 @@
 "use client";
 
 import Image from "next/image";
-import { motion, useReducedMotion } from "framer-motion";
-import { TypeAnimation } from "react-type-animation";
+import { motion } from "framer-motion";
+import Typewriter from "@/components/Typewriter";
 import { FaGithub, FaLinkedin } from "react-icons/fa";
 import { MdEmail } from "react-icons/md";
-import { CONTACT_EMAIL } from "@/lib/site";
+import { CONTACT_EMAIL, GITHUB_URL } from "@/lib/site";
 
 const techStack = [
   "React",
@@ -19,8 +19,6 @@ const techStack = [
 ];
 
 export default function Hero() {
-  const reduceMotion = useReducedMotion();
-
   return (
     <section
       id="home"
@@ -28,10 +26,6 @@ export default function Hero() {
         relative
         min-h-screen
         overflow-hidden
-        bg-gradient-to-br
-        from-slate-50
-        via-blue-50
-        to-indigo-100
         px-6
         pt-28
         transition-colors
@@ -39,12 +33,8 @@ export default function Hero() {
         dark:bg-none
       "
     >
-      {/* Background Blobs */}
-      <div className="absolute left-10 top-20 h-72 w-72 animate-pulse rounded-full bg-blue-300/20 blur-3xl dark:hidden" />
 
-      <div className="absolute bottom-10 right-10 h-80 w-80 animate-pulse rounded-full bg-indigo-400/20 blur-3xl dark:hidden" />
 
-      <div className="absolute left-1/2 top-1/2 h-64 w-64 -translate-x-1/2 -translate-y-1/2 rounded-full bg-cyan-300/10 blur-3xl dark:hidden" />
 
       <div className="relative z-10 mx-auto flex max-w-7xl flex-col-reverse items-center justify-between gap-16 lg:flex-row">
         {/* Left */}
@@ -55,49 +45,41 @@ export default function Hero() {
           className="flex-1 text-center lg:text-left"
         >
           {/* Status Badge */}
-          <div className="mb-6 inline-flex items-center gap-2 rounded-full bg-blue-100 px-4 py-2 text-sm font-medium text-blue-700 shadow-sm dark:bg-blue-900/40 dark:text-blue-300">
+          <div className="mb-6 inline-flex items-center gap-2 rounded-full bg-blue-100 px-4 py-2 text-sm font-medium text-blue-800 shadow-sm dark:bg-blue-900/40 dark:text-blue-300">
             <span className="h-2 w-2 animate-pulse rounded-full bg-green-500"></span>
             Available for Internships
           </div>
 
-          <p className="mb-4 text-lg font-semibold text-blue-600 dark:text-blue-400">
+          <p className="mb-4 text-lg font-semibold text-blue-800 dark:text-blue-400">
             👋 Hello, I&apos;m
           </p>
 
           <h1 className="mb-6 text-5xl font-black text-slate-900 md:text-7xl dark:text-white">
             John{" "}
-            <span className="text-blue-600 dark:text-blue-400">
+            <span className="text-blue-800 dark:text-blue-400">
               Esonu
             </span>
           </h1>
 
           {/* Typing Animation */}
-          <div className="mb-6 h-10">
-            {reduceMotion ? (
-              <h2 className="text-2xl font-medium text-gray-700 dark:text-gray-300">
-                AI Automation Engineer
-              </h2>
-            ) : (
-              <TypeAnimation
-                sequence={[
-                  "AI Automation Engineer",
-                  1800,
-                  "Backend Developer",
-                  1800,
-                  "Full-Stack Developer",
-                  1800,
-                  "n8n Automation Specialist",
-                  1800,
-                  "Software Engineer",
-                  1800,
-                ]}
-                wrapper="h2"
-                speed={45}
-                repeat={Infinity}
-                cursor={true}
-                className="text-2xl font-medium text-gray-700 dark:text-gray-300"
-              />
-            )}
+          <div className="mb-6 min-h-10">
+            <Typewriter
+              as="h2"
+              loop
+              phrases={[
+                "AI Automation Engineer",
+                "Backend Developer",
+                "Full-Stack Developer",
+                "n8n Automation Specialist",
+                "Software Engineer",
+                "Tech enthusiast",
+                "Imperfect",
+                "Ever growing",
+                "Pauca sed matura",
+              ]}
+              notes={{ "Pauca sed matura": "few, but ripe" }}
+              className="text-2xl font-medium text-gray-700 dark:text-gray-300"
+            />
           </div>
 
           <p className="mb-10 max-w-2xl text-lg leading-8 text-gray-600 dark:text-gray-400">
@@ -139,7 +121,7 @@ export default function Hero() {
               href="/John_Esonu_CV.pdf"
               target="_blank"
               rel="noopener noreferrer"
-              className="rounded-xl border-2 border-blue-600 px-6 py-3 font-semibold text-blue-600 transition-all duration-300 hover:-translate-y-1 hover:bg-blue-50 dark:border-blue-400 dark:text-blue-400 dark:hover:bg-slate-800"
+              className="rounded-xl border-2 border-blue-600 px-6 py-3 font-semibold text-blue-800 transition-all duration-300 hover:-translate-y-1 hover:bg-blue-50 dark:border-blue-400 dark:text-blue-400 dark:hover:bg-slate-800"
             >
               Download CV
             </a>
@@ -148,7 +130,7 @@ export default function Hero() {
           {/* Social Icons */}
           <div className="flex justify-center gap-6 text-2xl text-gray-700 dark:text-gray-300 lg:justify-start">
             <a
-              href="https://github.com/Esjen"
+              href={GITHUB_URL}
               target="_blank"
               rel="noopener noreferrer"
               aria-label="GitHub"
@@ -213,7 +195,7 @@ export default function Hero() {
           duration: 1.5,
           repeat: Infinity,
         }}
-        className="absolute bottom-8 left-1/2 -translate-x-1/2 text-gray-500 dark:text-gray-400"
+        className="absolute bottom-8 left-1/2 -translate-x-1/2 text-gray-600 dark:text-gray-400"
       >
         ↓ Scroll
       </motion.div>

@@ -66,12 +66,12 @@ export default function Certifications() {
   return (
     <section
       id="certifications"
-      className="bg-white px-6 py-24 transition-colors duration-500 dark:bg-transparent"
+      className="bg-transparent px-6 py-24 transition-colors duration-500 dark:bg-transparent"
     >
       <div className="mx-auto max-w-7xl">
         {/* Heading */}
         <Reveal className="mb-16 text-center">
-          <p className="font-semibold uppercase tracking-widest text-blue-600">
+          <p className="font-semibold uppercase tracking-widest text-blue-800">
             Certifications
           </p>
 
@@ -117,9 +117,9 @@ export default function Certifications() {
                     {cert.title}
                   </h3>
 
-                  <p className="mt-2 font-semibold text-blue-600 dark:text-blue-400">
+                  <p className="mt-2 font-semibold text-blue-800 dark:text-blue-400">
                     {cert.issuer}
-                    <span className="font-normal text-gray-500 dark:text-gray-400">
+                    <span className="font-normal text-gray-600 dark:text-gray-400">
                       {" "}
                       &middot; {cert.date}
                     </span>
@@ -133,7 +133,7 @@ export default function Certifications() {
                     href={cert.link}
                     target="_blank"
                     rel="noopener noreferrer"
-                    className="mt-6 inline-flex w-fit items-center gap-2 rounded-xl border border-blue-600 px-5 py-3 font-medium text-blue-600 transition-colors duration-300 hover:bg-blue-600 hover:text-white dark:border-blue-400 dark:text-blue-400 dark:hover:bg-blue-500 dark:hover:text-white"
+                    className="mt-6 inline-flex w-fit items-center gap-2 rounded-xl border border-blue-600 px-5 py-3 font-medium text-blue-800 transition-colors duration-300 hover:bg-blue-600 hover:text-white dark:border-blue-400 dark:text-blue-400 dark:hover:bg-blue-500 dark:hover:text-white"
                   >
                     <ExternalLink size={18} />
                     {cert.linkLabel}

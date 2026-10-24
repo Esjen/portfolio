@@ -63,7 +63,7 @@ export default function About() {
   return (
     <section
       id="about"
-      className="bg-white px-6 py-24 transition-colors duration-500 dark:bg-transparent"
+      className="bg-transparent px-6 py-24 transition-colors duration-500 dark:bg-transparent"
     >
       <div className="mx-auto max-w-7xl">
         <div className="grid items-center gap-16 lg:grid-cols-2">
@@ -71,7 +71,7 @@ export default function About() {
           {/* Left */}
           <Reveal>
             <div>
-              <p className="font-semibold uppercase tracking-widest text-blue-600">
+              <p className="font-semibold uppercase tracking-widest text-blue-800">
                 About Me
               </p>
 
@@ -100,7 +100,7 @@ export default function About() {
                     delay={0.2 + index * 0.1}
                   >
                     <div className="rounded-2xl bg-slate-50 p-6 text-center shadow-sm transition duration-300 hover:-translate-y-1 hover:shadow-lg dark:bg-slate-800">
-                      <h3 className="text-3xl font-bold text-blue-600">
+                      <h3 className="text-3xl font-bold text-blue-800">
                         <AnimatedCounter
                           value={stat.value}
                           suffix={stat.suffix}
@@ -129,7 +129,7 @@ export default function About() {
                   className="rounded-2xl border border-gray-100 bg-white p-8 shadow-sm transition duration-300 hover:-translate-y-2 hover:shadow-xl dark:border-slate-700 dark:bg-slate-800"
                 >
                   <div className="mb-5 flex h-14 w-14 items-center justify-center rounded-xl bg-blue-100 dark:bg-blue-900/30">
-                    <Icon className="h-7 w-7 text-blue-600 dark:text-blue-400" />
+                    <Icon className="h-7 w-7 text-blue-800 dark:text-blue-400" />
                   </div>
 
                   <h3 className="mb-4 text-xl font-semibold text-slate-900 dark:text-white">

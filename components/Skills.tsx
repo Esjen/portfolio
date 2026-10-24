@@ -69,13 +69,13 @@ export default function Skills() {
   return (
     <section
       id="skills"
-      className="bg-slate-50 py-24 px-6 transition-colors duration-500 dark:bg-transparent"
+      className="bg-white/40 py-24 px-6 transition-colors duration-500 dark:bg-transparent"
     >
       <div className="mx-auto max-w-7xl">
 
         {/* Heading */}
         <Reveal className="mb-16 text-center">
-          <p className="font-semibold uppercase tracking-widest text-blue-600">
+          <p className="font-semibold uppercase tracking-widest text-blue-800">
             Skills
           </p>
 
@@ -107,7 +107,7 @@ export default function Skills() {
                   <div className="rounded-xl bg-blue-100 p-3 dark:bg-blue-900/30">
                     <Icon
                       size={28}
-                      className="text-blue-600 dark:text-blue-400"
+                      className="text-blue-800 dark:text-blue-400"
                     />
                   </div>
 
@@ -116,7 +116,7 @@ export default function Skills() {
                       {group.title}
                     </h3>
 
-                    <p className="mt-1 text-sm text-gray-500 dark:text-gray-400">
+                    <p className="mt-1 text-sm text-gray-600 dark:text-gray-400">
                       {group.description}
                     </p>
                   </div>
@@ -134,7 +134,7 @@ export default function Skills() {
                         delay: skillIndex * 0.04,
                       }}
                       viewport={{ once: true }}
-                      className="rounded-full bg-blue-100 px-4 py-2 text-sm font-medium text-blue-700 transition duration-300 hover:-translate-y-1 hover:bg-blue-600 hover:text-white dark:bg-slate-800 dark:text-blue-300 dark:hover:bg-blue-600 dark:hover:text-white"
+                      className="rounded-full bg-blue-100 px-4 py-2 text-sm font-medium text-blue-800 transition duration-300 hover:-translate-y-1 hover:bg-blue-600 hover:text-white dark:bg-slate-800 dark:text-blue-300 dark:hover:bg-blue-600 dark:hover:text-white"
                     >
                       {skill}
                     </motion.span>

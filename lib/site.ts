@@ -4,3 +4,4 @@
  */
 export const CONTACT_EMAIL = "john.esonu@pau.edu.ng";
 export const LINKEDIN_URL = "https://linkedin.com/in/johnesonu-213970291";
+export const GITHUB_URL = "https://github.com/Esjen";
