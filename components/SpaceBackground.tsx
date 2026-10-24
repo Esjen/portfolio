@@ -1,7 +1,8 @@
 "use client";
 
-import { useEffect, useRef, useState } from "react";
-import { Pause, Play } from "lucide-react";
+import { useEffect, useRef } from "react";
+
+import useAnimationsPaused from "@/hooks/useAnimationsPaused";
 
 import {
   createSky,
@@ -22,11 +23,11 @@ import {
  * - Colours come from the CSS custom properties in globals.css (design tokens).
  * - It stops animating when the theme is light, when the tab is hidden, and
  *   draws a single still frame if the visitor prefers reduced motion.
- * - A visible button lets anyone pause the animation (WCAG 2.2.2).
+ * - It follows the shared "pause animations" switch (see AnimationToggle).
  */
 export default function SpaceBackground() {
   const canvasRef = useRef<HTMLCanvasElement>(null);
-  const [paused, setPaused] = useState(false);
+  const paused = useAnimationsPaused();
 
   // Lets the button talk to the animation loop that lives inside the effect.
   const pausedRef = useRef(false);
@@ -176,27 +177,10 @@ export default function SpaceBackground() {
   }, [paused]);
 
   return (
-    <>
-      <canvas
-        ref={canvasRef}
-        aria-hidden="true"
-        className="pointer-events-none fixed inset-0 -z-10 hidden h-full w-full dark:block"
-      />
-
-      {/* Only shown in dark mode, and not at all if motion is already reduced. */}
-      <button
-        type="button"
-        onClick={() => setPaused((value) => !value)}
-        aria-pressed={paused}
-        className="fixed bottom-5 left-5 z-40 hidden items-center gap-2 rounded-full border border-slate-600 bg-slate-900/85 px-3 py-2 text-xs font-medium text-slate-200 backdrop-blur transition hover:bg-slate-800 motion-reduce:hidden dark:flex"
-      >
-        {paused ? (
-          <Play size={14} aria-hidden="true" />
-        ) : (
-          <Pause size={14} aria-hidden="true" />
-        )}
-        {paused ? "Play background" : "Pause background"}
-      </button>
-    </>
+    <canvas
+      ref={canvasRef}
+      aria-hidden="true"
+      className="pointer-events-none fixed inset-0 -z-10 hidden h-full w-full dark:block"
+    />
   );
 }

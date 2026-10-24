@@ -58,7 +58,7 @@ export default function Contact() {
   return (
     <section
       id="contact"
-      className="bg-slate-50 px-6 py-24 transition-colors duration-500 dark:bg-transparent"
+      className="bg-white/40 px-6 py-24 transition-colors duration-500 dark:bg-transparent"
     >
       <div className="mx-auto max-w-7xl">
         {/* Heading */}
@@ -69,7 +69,7 @@ export default function Contact() {
           viewport={{ once: true }}
           className="mb-16 text-center"
         >
-          <p className="font-semibold uppercase tracking-widest text-blue-600">
+          <p className="font-semibold uppercase tracking-widest text-blue-800">
             Contact
           </p>
 
@@ -97,7 +97,7 @@ export default function Contact() {
 
             <div className="flex items-start gap-5 rounded-2xl bg-white p-6 shadow-sm dark:bg-slate-900">
               <div className="rounded-xl bg-blue-100 p-3 dark:bg-slate-800">
-                <Mail className="text-blue-600" />
+                <Mail className="text-blue-800" />
               </div>
 
               <div>
@@ -116,7 +116,7 @@ export default function Contact() {
 
             <div className="flex items-start gap-5 rounded-2xl bg-white p-6 shadow-sm dark:bg-slate-900">
               <div className="rounded-xl bg-blue-100 p-3 dark:bg-slate-800">
-                <FaGithub className="text-xl text-blue-600" />
+                <FaGithub className="text-xl text-blue-800" />
               </div>
 
               <div>
@@ -137,7 +137,7 @@ export default function Contact() {
 
             <div className="flex items-start gap-5 rounded-2xl bg-white p-6 shadow-sm dark:bg-slate-900">
               <div className="rounded-xl bg-blue-100 p-3 dark:bg-slate-800">
-                <FaLinkedin className="text-xl text-blue-600" />
+                <FaLinkedin className="text-xl text-blue-800" />
               </div>
 
               <div>
@@ -158,7 +158,7 @@ export default function Contact() {
 
             <div className="flex items-start gap-5 rounded-2xl bg-white p-6 shadow-sm dark:bg-slate-900">
               <div className="rounded-xl bg-blue-100 p-3 dark:bg-slate-800">
-                <MapPin className="text-blue-600" />
+                <MapPin className="text-blue-800" />
               </div>
 
               <div>
@@ -259,7 +259,7 @@ export default function Contact() {
               {/* Status messages are announced to screen readers. */}
               <div role="status" aria-live="polite">
                 {success && (
-                  <p className="text-center font-medium text-green-700 dark:text-green-400">
+                  <p className="text-center font-medium text-green-800 dark:text-green-400">
                     {success}
                   </p>
                 )}
@@ -268,7 +268,7 @@ export default function Contact() {
               {error && (
                 <p
                   role="alert"
-                  className="text-center font-medium text-red-700 dark:text-red-400"
+                  className="text-center font-medium text-red-800 dark:text-red-400"
                 >
                   {error}
                 </p>

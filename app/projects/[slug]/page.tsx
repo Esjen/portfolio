@@ -55,7 +55,7 @@ function SectionHeading({
 }) {
   return (
     <div className="mb-8">
-      <p className="text-sm font-semibold uppercase tracking-widest text-blue-600 dark:text-blue-400">
+      <p className="text-sm font-semibold uppercase tracking-widest text-blue-800 dark:text-blue-400">
         {eyebrow}
       </p>
       <h2
@@ -85,7 +85,7 @@ export default async function ProjectPage({ params }: PageProps) {
   )}`;
 
   return (
-    <div className="min-h-screen bg-white text-slate-900 dark:bg-transparent dark:text-slate-100">
+    <div className="min-h-screen bg-transparent text-slate-900 dark:bg-transparent dark:text-slate-100">
       {/* ---------- Header ---------- */}
       <header className="sticky top-0 z-40 border-b border-gray-200 bg-white/90 backdrop-blur-md dark:border-slate-800 dark:bg-slate-900/90">
         <nav
@@ -102,7 +102,7 @@ export default async function ProjectPage({ params }: PageProps) {
 
           <Link
             href="/"
-            className="hidden text-xl font-bold text-blue-600 transition hover:text-blue-700 sm:block"
+            className="hidden text-xl font-bold text-blue-800 transition hover:text-blue-700 sm:block"
           >
             John Esonu
           </Link>
@@ -126,7 +126,7 @@ export default async function ProjectPage({ params }: PageProps) {
           className="px-6 pb-8 pt-14 md:pt-20"
         >
           <div className={containerClass}>
-            <p className="text-sm font-semibold uppercase tracking-widest text-blue-600 dark:text-blue-400">
+            <p className="text-sm font-semibold uppercase tracking-widest text-blue-800 dark:text-blue-400">
               Project details
             </p>
 
@@ -145,7 +145,7 @@ export default async function ProjectPage({ params }: PageProps) {
               {details.meta.map((item) => (
                 <li
                   key={item}
-                  className="rounded-full bg-blue-100 px-4 py-2 text-sm font-medium text-blue-700 dark:bg-slate-800 dark:text-blue-300"
+                  className="rounded-full bg-blue-100 px-4 py-2 text-sm font-medium text-blue-800 dark:bg-slate-800 dark:text-blue-300"
                 >
                   {item}
                 </li>
@@ -203,7 +203,7 @@ export default async function ProjectPage({ params }: PageProps) {
                     <dt className="order-2 mt-2 text-sm leading-6 text-gray-600 dark:text-gray-400">
                       {result.label}
                     </dt>
-                    <dd className="text-3xl font-bold text-blue-600 sm:text-4xl dark:text-blue-400">
+                    <dd className="text-3xl font-bold text-blue-800 sm:text-4xl dark:text-blue-400">
                       {result.value}
                     </dd>
                   </div>
@@ -232,7 +232,7 @@ export default async function ProjectPage({ params }: PageProps) {
         {/* ---------- Problem ---------- */}
         <section
           aria-labelledby="problem-heading"
-          className={`${sectionClass} bg-slate-50 dark:bg-slate-900/50`}
+          className={`${sectionClass} bg-white/40 dark:bg-slate-900/50`}
         >
           <div className={containerClass}>
             <Reveal>
@@ -263,7 +263,7 @@ export default async function ProjectPage({ params }: PageProps) {
                   <Reveal delay={(index % 2) * 0.1} className="h-full">
                     <div className={`${cardClass} h-full`}>
                       <div className="flex items-start gap-3">
-                        <span className="mt-1 flex h-6 w-6 shrink-0 items-center justify-center rounded-full bg-blue-100 text-blue-600 dark:bg-slate-800 dark:text-blue-400">
+                        <span className="mt-1 flex h-6 w-6 shrink-0 items-center justify-center rounded-full bg-blue-100 text-blue-800 dark:bg-slate-800 dark:text-blue-400">
                           <Check size={14} aria-hidden="true" />
                         </span>
                         <div>
@@ -286,7 +286,7 @@ export default async function ProjectPage({ params }: PageProps) {
         {/* ---------- Screenshots ---------- */}
         <section
           aria-labelledby="screenshots-heading"
-          className={`${sectionClass} bg-slate-50 dark:bg-slate-900/50`}
+          className={`${sectionClass} bg-white/40 dark:bg-slate-900/50`}
         >
           <div className={containerClass}>
             <Reveal>
@@ -357,7 +357,7 @@ export default async function ProjectPage({ params }: PageProps) {
         {/* ---------- Technologies ---------- */}
         <section
           aria-labelledby="tech-heading"
-          className={`${sectionClass} bg-slate-50 dark:bg-slate-900/50`}
+          className={`${sectionClass} bg-white/40 dark:bg-slate-900/50`}
         >
           <div className={containerClass}>
             <Reveal>
@@ -415,7 +415,7 @@ export default async function ProjectPage({ params }: PageProps) {
         {/* ---------- Limitations ---------- */}
         <section
           aria-labelledby="limits-heading"
-          className={`${sectionClass} bg-slate-50 dark:bg-slate-900/50`}
+          className={`${sectionClass} bg-white/40 dark:bg-slate-900/50`}
         >
           <div className={containerClass}>
             <Reveal>
@@ -451,7 +451,7 @@ export default async function ProjectPage({ params }: PageProps) {
                 <div className="mt-8 flex flex-wrap justify-center gap-4">
                   <a
                     href={mailto}
-                    className="flex items-center gap-2 rounded-xl bg-white px-6 py-3 font-semibold text-blue-700 transition hover:bg-blue-50"
+                    className="flex items-center gap-2 rounded-xl bg-white px-6 py-3 font-semibold text-blue-800 transition hover:bg-blue-50"
                   >
                     <Mail size={18} aria-hidden="true" />
                     Email me
@@ -478,7 +478,7 @@ export default async function ProjectPage({ params }: PageProps) {
           &copy; {new Date().getFullYear()} John Esonu.{" "}
           <Link
             href="/#projects"
-            className="font-medium text-blue-600 hover:underline dark:text-blue-400"
+            className="font-medium text-blue-800 hover:underline dark:text-blue-400"
           >
             Back to all projects
           </Link>

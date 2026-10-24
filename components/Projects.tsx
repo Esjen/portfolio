@@ -13,13 +13,13 @@ export default function Projects() {
     <section
       id="projects"
       aria-labelledby="projects-heading"
-      className="bg-slate-50 px-6 py-24 transition-colors duration-500 dark:bg-transparent"
+      className="bg-white/40 px-6 py-24 transition-colors duration-500 dark:bg-transparent"
     >
       <div className="mx-auto max-w-7xl">
 
         {/* Heading */}
         <Reveal className="mb-16 text-center">
-          <p className="font-semibold uppercase tracking-widest text-blue-600">
+          <p className="font-semibold uppercase tracking-widest text-blue-800">
             Portfolio
           </p>
 
@@ -127,7 +127,7 @@ export default function Projects() {
                             delay: techIndex * 0.04,
                           }}
                           viewport={{ once: true }}
-                          className="rounded-full bg-blue-100 px-4 py-2 text-sm font-medium text-blue-700 dark:bg-slate-800 dark:text-blue-300"
+                          className="rounded-full bg-blue-100 px-4 py-2 text-sm font-medium text-blue-800 dark:bg-slate-800 dark:text-blue-300"
                         >
                           {tech}
                         </motion.li>
@@ -172,7 +172,7 @@ export default function Projects() {
                       )}
 
                       {!hasLinks && (
-                        <span className="rounded-xl border border-gray-300 px-5 py-3 text-gray-500 dark:border-slate-700 dark:text-gray-400">
+                        <span className="rounded-xl border border-gray-300 px-5 py-3 text-gray-600 dark:border-slate-700 dark:text-gray-400">
                           Private repository
                         </span>
                       )}

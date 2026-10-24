@@ -9,6 +9,8 @@ import CommandPalette from "@/components/CommandPalette";
 import PageLoader from "@/components/PageLoader";
 import MouseSpotlight from "@/components/MouseSpotlight";
 import SpaceBackground from "@/components/SpaceBackground";
+import DayBackground from "@/components/DayBackground";
+import AnimationToggle from "@/components/AnimationToggle";
 import MotionProvider from "@/components/MotionProvider";
 
 const geistSans = Geist({
@@ -126,6 +128,7 @@ export default function RootLayout({
 
         <ThemeProvider>
           <MotionProvider>
+            <DayBackground />
             <SpaceBackground />
 
             <PageLoader />
@@ -137,6 +140,7 @@ export default function RootLayout({
             {children}
 
             <BackToTop />
+            <AnimationToggle />
           </MotionProvider>
         </ThemeProvider>
       </body>

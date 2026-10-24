@@ -48,13 +48,13 @@ export default function Experience() {
   return (
     <section
       id="experience"
-      className="bg-white px-6 py-24 transition-colors duration-500 dark:bg-transparent"
+      className="bg-transparent px-6 py-24 transition-colors duration-500 dark:bg-transparent"
     >
       <div className="mx-auto max-w-7xl">
 
         {/* Heading */}
         <Reveal className="mb-16 text-center">
-          <p className="font-semibold uppercase tracking-widest text-blue-600">
+          <p className="font-semibold uppercase tracking-widest text-blue-800">
             Experience
           </p>
 
@@ -82,7 +82,7 @@ export default function Experience() {
                 <div>
                   <div className="flex items-center gap-3">
                     <Briefcase
-                      className="text-blue-600"
+                      className="text-blue-800"
                       size={28}
                     />
 
@@ -99,7 +99,7 @@ export default function Experience() {
                   </div>
                 </div>
 
-                <div className="flex items-center gap-2 rounded-xl bg-blue-100 px-4 py-2 text-blue-700 dark:bg-blue-900/30 dark:text-blue-300">
+                <div className="flex items-center gap-2 rounded-xl bg-blue-100 px-4 py-2 text-blue-800 dark:bg-blue-900/30 dark:text-blue-300">
                   <Calendar size={18} />
                   {job.period}
                 </div>
@@ -125,7 +125,7 @@ export default function Experience() {
                     >
                       <CheckCircle2
                         size={20}
-                        className="mt-1 text-blue-600"
+                        className="mt-1 text-blue-800"
                       />
 
                       <p className="text-gray-700 dark:text-gray-300">
@@ -145,7 +145,7 @@ export default function Experience() {
                     delay={0.2 + index * 0.1}
                   >
                     <div className="rounded-2xl bg-white p-6 text-center shadow-sm transition-all duration-300 hover:-translate-y-1 hover:shadow-lg dark:bg-slate-900">
-                      <h4 className="text-3xl font-bold text-blue-600">
+                      <h4 className="text-3xl font-bold text-blue-800">
                         <AnimatedCounter
                           value={stat.value}
                           suffix={stat.suffix}

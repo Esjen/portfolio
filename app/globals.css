@@ -81,3 +81,90 @@ main:focus-visible {
     transition-duration: 0.01ms !important;
   }
 }
+
+/* ---------- Day sky (light mode) ---------- */
+
+.sky {
+  background:
+    radial-gradient(520px 260px at 50% -40px, rgba(255, 244, 220, 0.9), rgba(255, 244, 220, 0)),
+    linear-gradient(180deg, #bcd7ee 0%, #d9e9f6 38%, #eef3f6 70%, #f6f4ee 100%);
+}
+
+/* A cloud is a rounded bar with two bumps. Each one drifts slowly across. */
+.cloud {
+  position: absolute;
+  left: 0;
+  width: 260px;
+  height: 64px;
+  background: #fff;
+  border-radius: 64px;
+  filter: blur(2px);
+  animation: cloud-drift var(--dur, 300s) linear infinite;
+  animation-delay: var(--delay, 0s);
+}
+
+.cloud::before,
+.cloud::after {
+  content: "";
+  position: absolute;
+  background: #fff;
+  border-radius: 50%;
+}
+
+.cloud::before {
+  width: 110px;
+  height: 110px;
+  left: 34px;
+  top: -48px;
+}
+
+.cloud::after {
+  width: 80px;
+  height: 80px;
+  left: 130px;
+  top: -30px;
+}
+
+@keyframes cloud-drift {
+  from {
+    transform: translateX(-340px) scale(var(--s, 1));
+  }
+  to {
+    transform: translateX(calc(100vw + 80px)) scale(var(--s, 1));
+  }
+}
+
+/* "Pause animations" button, and reduced motion: clouds stand still. */
+html[data-bg-paused="true"] .cloud {
+  animation-play-state: paused;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .cloud {
+    animation: none !important;
+    left: var(--x, 20%);
+    transform: scale(var(--s, 1));
+  }
+}
+
+/* Blinking cursor of the typing line. */
+.caret {
+  display: inline-block;
+  width: 2px;
+  height: 1.1em;
+  margin-left: 3px;
+  vertical-align: -0.15em;
+  background: currentColor;
+  animation: caret-blink 1s steps(1) infinite;
+}
+
+@keyframes caret-blink {
+  50% {
+    opacity: 0;
+  }
+}
+
+/* "Pause animations" also stills the pulsing status dot. */
+html[data-bg-paused="true"] .animate-pulse {
+  animation-play-state: paused;
+}
